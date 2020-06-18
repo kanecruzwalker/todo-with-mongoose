@@ -16,7 +16,7 @@ app.use(express.static("public"));
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
 // const workItems = [];
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true,},);
 
 const Schema = mongoose.Schema;
 
@@ -53,6 +53,10 @@ Item.insertMany(defaultItems, function (err){
 
 
 app.get("/", function(req, res) {
+
+  Item.find({}, function(err, foundItems){
+      console.log(foundItems);
+    });
 
 // const day = date.getDate();
 
