@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+
 // need to replace connection to connect to atlas mongoDB
 // line for local work mongodb://localhost:27017/todolistDB
 
