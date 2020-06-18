@@ -91,11 +91,16 @@ app.post("/delete", function(req,res){
       console.log("success item deleted");
       res.redirect("/");
     }
-  })
+  });
 });
 
 app.get("/:newList", function (req,res){
-  console.log(req.params.newList);
+  const listName = req.params.newList
+  const list = new List({
+    name: listName,
+    items: defaultItems
+  });
+  list.save();
 });
 
 
