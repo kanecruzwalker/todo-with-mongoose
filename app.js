@@ -2,7 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const date = require(__dirname + "/date.js");
+// const date = require(__dirname + "/date.js");
 const mongoose=("mongoose");
 
 const app = express();
@@ -52,9 +52,9 @@ Item.insertMany(defaultItems, function (err){
 
 app.get("/", function(req, res) {
 
-const day = date.getDate();
+// const day = date.getDate();
 
-  res.render("list", {listTitle: day, newListItems: items});
+  res.render("list", {listTitle: "Today", newListItems: items});
 
 });
 
