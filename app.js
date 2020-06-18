@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 // const date = require(__dirname + "/date.js");
 const mongoose= require("mongoose");
 const _ = require("lodash");
-require("dotenv").config();
 
 const app = express();
 
@@ -18,7 +17,7 @@ app.use(express.static("public"));
 // need to replace connection to connect to atlas mongoDB
 // line for local work mongodb://localhost:27017/todolistDB
 
-mongoose.connect("mongodb+srv://admin-kane:" + process.env.CLUSTER_PASSWORD + "@cluster0-eaqaq.mongodb.net/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+mongoose.connect("mongodb+srv://admin-kane:Test123@cluster0-eaqaq.mongodb.net/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},);
 
 const Schema = mongoose.Schema;
 
