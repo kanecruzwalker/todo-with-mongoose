@@ -12,10 +12,19 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const items = ["Buy Food", "Cook Food", "Eat Food"];
-const workItems = [];
+// const items = ["Buy Food", "Cook Food", "Eat Food"];
+// const workItems = [];
 
 mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true});
+
+const Schema = mongoose.Schema;
+
+const itemsSchema = {
+  name: {
+    type: String,
+    required: true
+  }
+}
 
 app.get("/", function(req, res) {
 
