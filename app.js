@@ -72,6 +72,10 @@ app.post("/", function(req, res){
 
   const itemName = req.body.newItem;
 
+  const item = new Item ({
+    name: itemName
+  })
+
   // if (req.body.list === "Work") {
   //   workItems.push(item);
   //   res.redirect("/work");
