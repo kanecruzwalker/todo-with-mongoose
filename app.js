@@ -70,7 +70,7 @@ app.get("/", function(req, res) {
 
 app.post("/", function(req, res){
 
-  const item = req.body.newItem;
+  const itemName = req.body.newItem;
 
   // if (req.body.list === "Work") {
   //   workItems.push(item);
