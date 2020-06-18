@@ -117,7 +117,7 @@ app.post("/delete", function(req,res){
 });
 
 app.get("/:newList", function (req,res){
-  const listName = req.params.newList
+  const listName = _.capitalize(req.params.newList);
 
   List.findOne({name: listName}, function(err, foundList){
     if (!err){
