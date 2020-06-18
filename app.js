@@ -96,11 +96,22 @@ app.post("/delete", function(req,res){
 
 app.get("/:newList", function (req,res){
   const listName = req.params.newList
-  const list = new List({
-    name: listName,
-    items: defaultItems
+
+  List.findOne({name: listName}, function(err, foundList){
+    if (!err){
+      if (!foundList){
+        const list = new List({
+          name: listName,
+          items: defaultItems
+        });
+        list.save();
+      }else{
+        res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
+      }
+    }
   });
-  list.save();
+
+
 });
 
 
