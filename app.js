@@ -13,8 +13,10 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+// need to replace connection to connect to atlas mongoDB
+// line for local work mongodb://localhost:27017/todolistDB
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},);
+mongoose.connect("mongodb+srv://admin-kane:Test123@cluster0-eaqaq.mongodb.net/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},);
 
 const Schema = mongoose.Schema;
 
