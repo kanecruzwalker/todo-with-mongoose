@@ -97,7 +97,9 @@ app.get("/about", function(req, res){
 
 
 app.post("/delete", function(req,res){
-  console.log(req.body);
+
+  checkedItemID = req.body.deletedItem
+  console.log(checkedItemID);
 });
 
 app.listen(3000, function() {
