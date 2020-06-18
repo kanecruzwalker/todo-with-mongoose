@@ -106,6 +106,7 @@ app.post("/delete", function(req,res){
       console.log(err);
     }else{
       console.log("success item deleted");
+      res.redirect("/");
     }
   })
 });
