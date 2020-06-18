@@ -42,13 +42,13 @@ const item3 = new Item({
 
 const defaultItems= [item1, item2, item3]
 
-Item.insertMany(defaultItems, function (err){
-  if (err){
-    console.log(err);
-  }else{
-    console.log("Success, Items added to db");
-  }
-})
+// Item.insertMany(defaultItems, function (err){
+//   if (err){
+//     console.log(err);
+//   }else{
+//     console.log("Success, Items added to db");
+//   }
+// })
 
 
 
@@ -56,11 +56,11 @@ app.get("/", function(req, res) {
 
   Item.find({}, function(err, foundItems){
       console.log(foundItems);
+      res.render("list", {listTitle: "Today", newListItems: foundItems});
     });
 
 // const day = date.getDate();
 
-  res.render("list", {listTitle: "Today", newListItems: items});
 
 });
 
