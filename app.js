@@ -15,7 +15,7 @@ app.use(express.static("public"));
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
 // const workItems = [];
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true,},);
+mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false},);
 
 const Schema = mongoose.Schema;
 
@@ -98,8 +98,16 @@ app.get("/about", function(req, res){
 
 app.post("/delete", function(req,res){
 
-  checkedItemID = req.body.deletedItem
+  const checkedItemID = req.body.deletedItem
   console.log(checkedItemID);
+
+  Item.findByIdAndRemove(checkedItemID, function(err){
+    if(err){
+      console.log(err);
+    }else{
+      console.log("success item deleted");
+    }
+  })
 });
 
 app.listen(3000, function() {
