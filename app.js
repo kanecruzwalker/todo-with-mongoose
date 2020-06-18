@@ -19,12 +19,28 @@ mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true}
 
 const Schema = mongoose.Schema;
 
+
 const itemsSchema = {
   name: {
     type: String,
     required: true
   }
 }
+
+const Item = mongoose.model("Item", itemsSchema);
+
+const item1 = new Item({
+  name: "Welcome to todolist"
+})
+const item2 = new Item({
+  name: "Hit the + button to add a new item"
+})
+const item3 = new Item({
+  name: "Hit this to delete and item."
+})
+
+const defaultItems= [item1, item2, item3]
+
 
 app.get("/", function(req, res) {
 
