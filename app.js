@@ -76,6 +76,8 @@ app.post("/", function(req, res){
     name: itemName
   })
 
+  item.save();
+
   // if (req.body.list === "Work") {
   //   workItems.push(item);
   //   res.redirect("/work");
