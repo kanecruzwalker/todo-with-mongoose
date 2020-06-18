@@ -93,6 +93,8 @@ app.post("/delete", function(req,res){
 
   const checkedItemID = req.body.deletedItem
   console.log(checkedItemID);
+  const listName = req.body.listName
+  console.log(listName);
 
   Item.findByIdAndRemove(checkedItemID, function(err){
     if(err){
