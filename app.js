@@ -105,6 +105,7 @@ app.get("/:newList", function (req,res){
           items: defaultItems
         });
         list.save();
+        res.redirect("/"+ listName);
       }else{
         res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
       }
